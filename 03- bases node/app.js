@@ -6,10 +6,28 @@ const fs = require('fs'); //nativos
 
 
 
-let base = 11;
+//let base = 11;
+
+console.clear();
+
+const base = 3;
+let salida = '';
+
+console.log('=================');
+console.log(` Tabla del ${base}`);
+console.log('=================');
+
 
 for (let i = 1; i < 11; i++) {
 
-    console.log(` ${base} * ${i} = ${base * i}`);
+    salida += ` ${base} * ${i} = ${base * i}\n`;
 
 }
+
+fs.writeFile(`tabla-${base}.txt`, salida, (err) => {
+    if (err) throw err;
+
+    console.log(`tabla-${base}.txt creado`);
+});
+
+console.log(salida);
